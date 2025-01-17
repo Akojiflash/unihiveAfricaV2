@@ -66,12 +66,7 @@ class WebFragment : Fragment() {
         webView!!.settings.loadsImagesAutomatically = true
         webView!!.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 
-        // Request storage permissions if needed
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (requireContext().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
-            }
-        }
+
         webView!!.settings.javaScriptEnabled= true
         webView!!.loadUrl("https://unihiveafrica.com/joinUs")
 
@@ -126,11 +121,6 @@ class WebFragment : Fragment() {
                 return true
             }
         }
-
-
-
-
-
 
         // Configure SwipeRefreshLayout
         binding.swipeRefreshLayout.setOnRefreshListener {
